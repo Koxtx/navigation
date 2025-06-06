@@ -23,17 +23,18 @@ export default function StackNavigator() {
         name="Screen1"
         options={({ navigation }) => ({
           title: "Home",
-          headerRight: () => (
-            <Pressable
-              onPress={() =>
-                navigation.navigate("Screen2", {
-                  name: "John",
-                })
-              }
-            >
-              <AntDesign name="user" size={24} color="black" />
-            </Pressable>
-          ),
+          headerShown: false,
+          // headerRight: () => (
+          //   <Pressable
+          //     onPress={() =>
+          //       navigation.navigate("Screen2", {
+          //         name: "John",
+          //       })
+          //     }
+          //   >
+          //     <AntDesign name="user" size={24} color="black" />
+          //   </Pressable>
+          // ),
         })}
       />
       <Stack.Screen

@@ -11,9 +11,9 @@ export default function TopbarNavigator() {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarStyle: {
-          paddingTop: inset.top,
-        },
+        // tabBarStyle: {
+        //   paddingTop: inset.top,
+        // },
         tabBarPressColor: "violet",
         tabBarAndroidRipple: { borderless: false },
         tabBarIndicatorStyle: {

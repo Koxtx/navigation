@@ -10,9 +10,6 @@ export default function App() {
     <SafeAreaProvider>
       <NavigationContainer>
         <DrawerNavigator />
-        {/* <TopbarNavigator /> */}
-        {/* <StackNavigator /> */}
-        {/* <ButtomtabNavigator /> */}
       </NavigationContainer>
     </SafeAreaProvider>
   );

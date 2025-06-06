@@ -8,10 +8,10 @@ import Screen1 from "../screens/Screen1";
 import Screen7 from "../screens/Screen7";
 import Screen3 from "../screens/Screen3";
 import { AntDesign, Ionicons, MaterialIcons } from "@expo/vector-icons";
-import { Pressable } from "react-native";
+import { Image, Pressable } from "react-native";
+import ButtomtabNavigator from "./ButtomtabNavigator";
 
 const Drawer = createDrawerNavigator();
-
 
 function CustomDrawerContent(prop) {
   return (
@@ -47,18 +47,46 @@ export default function DrawerNavigator() {
         })}
       >
         <Drawer.Screen
-          name="Home"
-          component={Screen1}
-          options={{
+          name="Navigation"
+          component={ButtomtabNavigator}
+          options={({ navigation }) => ({
+            title: "",
+            // headerTitle: () => (
+            //   <Image
+            //     source={require("../assets/icon.png")}
+            //     style={{ width: 40, height: 40 }}
+            //   />
+            // ),
+            drawerLabel: "Home",
             drawerIcon: ({ color }) => (
               <AntDesign name="home" size={24} color={color} />
             ),
-          }}
+            headerRight: () => (
+              <Pressable
+                style={{ marginRight: 16 }}
+                onPress={() =>
+                  navigation.navigate("Navigation", {
+                    screen: "Home",
+                    params: {
+                      screen: "Screen2",
+                      params: {
+                        name: "John",
+                      },
+                    },
+                  })
+                }
+              >
+                <AntDesign name="user" size={24} color="black" />
+              </Pressable>
+            ),
+          })}
         />
         <Drawer.Screen
           name="Notification"
           component={Screen7}
           options={{
+            title: "",
+            drawerLabel: "Notifications",
             drawerIcon: ({ color }) => (
               <Ionicons name="notifications" size={24} color={color} />
             ),

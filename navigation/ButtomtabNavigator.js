@@ -2,6 +2,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Screen1 from "../screens/Screen1";
 import Screen3 from "../screens/Screen3";
 import AntDesign from "@expo/vector-icons/AntDesign";
+import TopbarNavigator from "./TopbarNavigator";
+import StackNavigator from "./StackNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -18,10 +20,11 @@ export default function ButtomtabNavigator() {
         tabBarInactiveTintColor: "grey",
         tabBarActiveTintColor: "blue",
         tabBarShowLabel: false,
+        headerShown: false,
       }}
     >
       <Tab.Screen
-        component={Screen1}
+        component={StackNavigator}
         name="Home"
         options={{
           tabBarIcon: ({ color }) => (
@@ -36,6 +39,16 @@ export default function ButtomtabNavigator() {
         options={{
           tabBarIcon: ({ color }) => (
             <AntDesign name="setting" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        component={TopbarNavigator}
+        name="Articles"
+        initialParams={{ email: "" }}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <AntDesign name="shoppingcart" size={24} color={color} />
           ),
         }}
       />
